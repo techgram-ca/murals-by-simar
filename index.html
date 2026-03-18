@@ -167,9 +167,9 @@
                         <nav class="header__nav__menu mobile-menu">
                             <ul>
                                 <li><a href="#hero">Home</a></li>
-                                <li class="active"><a href="#services">What We Do</a></li>
+                                <li><a href="#services">What We Do</a></li>
                                 <li><a href="#portfolio">Portfolio</a></li>
-                                <li><a href="#why-us">About</a></li>
+                                <li><a href="#why-us">Why Choose Us</a></li>
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
                         </nav>
@@ -667,7 +667,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
-    <!-- Smooth Scroll: offset for fixed header, no hash in URL -->
+    <!-- Smooth Scroll: offset for fixed header, no hash in URL, scroll-spy active state -->
     <script>
         (function () {
             var HEADER_HEIGHT = 90;
@@ -690,6 +690,34 @@
                 e.preventDefault();
                 scrollToTarget(id);
             });
+
+            // Scroll-spy: highlight nav link for the section currently in view
+            var navLinks = document.querySelectorAll('.header__nav__menu a[href^="#"]');
+            var sectionIds = Array.prototype.map.call(navLinks, function (a) {
+                return a.getAttribute('href').substring(1);
+            });
+
+            function updateActive() {
+                var scrollY = window.pageYOffset;
+                var current = sectionIds[0];
+                sectionIds.forEach(function (id) {
+                    var el = document.getElementById(id);
+                    if (el && el.getBoundingClientRect().top + window.pageYOffset - HEADER_HEIGHT - 10 <= scrollY) {
+                        current = id;
+                    }
+                });
+                navLinks.forEach(function (a) {
+                    var li = a.parentElement;
+                    if (a.getAttribute('href') === '#' + current) {
+                        li.classList.add('active');
+                    } else {
+                        li.classList.remove('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActive, { passive: true });
+            updateActive();
         })();
     </script>
 
