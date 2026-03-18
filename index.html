@@ -29,6 +29,7 @@
             width: 100%;
             background: #000;
             padding: 0;
+            margin-top: 90px;
         }
         .ba-slider {
             position: relative;
@@ -57,8 +58,8 @@
             -webkit-user-drag: none;
         }
         .ba-after {
-            clip-path: inset(0 50% 0 0);
-            -webkit-clip-path: inset(0 50% 0 0);
+            clip-path: inset(0 0 0 50%);
+            -webkit-clip-path: inset(0 0 0 50%);
         }
         .ba-label {
             position: absolute;
@@ -688,10 +689,9 @@
             }
 
             function setSlider(percent) {
-                var rightClip = 100 - percent;
-                after.style.clipPath         = 'inset(0 ' + rightClip + '% 0 0)';
-                after.style.webkitClipPath   = 'inset(0 ' + rightClip + '% 0 0)';
-                handle.style.left            = percent + '%';
+                after.style.clipPath       = 'inset(0 0 0 ' + percent + '%)';
+                after.style.webkitClipPath = 'inset(0 0 0 ' + percent + '%)';
+                handle.style.left          = percent + '%';
             }
 
             // Mouse events
