@@ -55,6 +55,20 @@
     });
 
     /*------------------
+        Smooth Scroll (no hash in URL, offset for header)
+    --------------------*/
+    $(document).on('click', '.scroll-link', function (e) {
+        e.preventDefault();
+        var targetId = $(this).attr('href');
+        var $target = $(targetId);
+        if ($target.length) {
+            var headerHeight = $('.header').outerHeight() || 0;
+            var scrollTo = $target.offset().top - headerHeight - 20;
+            $('html, body').animate({ scrollTop: scrollTo }, 800);
+        }
+    });
+
+    /*------------------
 		Hero Slider
 	--------------------*/
     $('.hero__slider').owlCarousel({

@@ -2168,3 +2168,37 @@ ol {
     padding: 30px 40px 35px 35px;
   }
 }
+
+/*---------------------
+  Logo Text
+-----------------------*/
+.logo-text {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Play", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.logo-text .logo-icon {
+  font-size: 24px;
+  color: #00bfe7;
+}
+.logo-text span {
+  color: #ffffff;
+}
+.logo-text:hover,
+.logo-text:focus {
+  color: #ffffff;
+  text-decoration: none;
+}
+}
