@@ -156,15 +156,17 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="./index.html" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+                            <i class="fa fa-paint-brush" style="font-size:22px;color:#00bfe7;"></i>
+                            <span style="font-family:'Play',sans-serif;font-size:17px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px;line-height:1;">Murals By Simar</span>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-10">
                     <div class="header__nav__option">
                         <nav class="header__nav__menu mobile-menu">
                             <ul>
-                <li class="active"><a href="#hero"><i class="fa fa-paint-brush" style="margin-right:6px;"></i>Murals by Simar</a></li>
-                                <li><a href="#services">Services</a></li>
+                                <li class="active"><a href="#services"><i class="fa fa-paint-brush" style="margin-right:6px;"></i>What We Do</a></li>
                                 <li><a href="#portfolio">Portfolio</a></li>
                                 <li><a href="#why-us">About</a></li>
                                 <li><a href="#contact">Contact</a></li>
@@ -575,7 +577,10 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__top__logo">
-                            <a href="#"><img src="img/logo.png" alt=""></a>
+                            <a href="#" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;">
+                                <i class="fa fa-paint-brush" style="font-size:24px;color:#00bfe7;"></i>
+                                <span style="font-family:'Play',sans-serif;font-size:18px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px;line-height:1;">Murals By Simar</span>
+                            </a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -620,6 +625,21 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__option__item">
+                            <h5>Quick Links</h5>
+                            <ul>
+                                <li><a href="#services">What We Do</a></li>
+                                <li><a href="#portfolio">Portfolio</a></li>
+                                <li><a href="#why-us">About Us</a></li>
+                                <li><a href="#contact">Get a Quote</a></li>
+                            </ul>
+                            <div style="margin-top:20px;">
+                                <p style="color:#adadad;font-size:14px;margin-bottom:6px;"><i class="fa fa-map-marker" style="color:#00bfe7;margin-right:6px;"></i>Serving GTA &amp; surrounding cities</p>
+                                <p style="color:#adadad;font-size:14px;"><i class="fa fa-dollar" style="color:#00bfe7;margin-right:6px;"></i>Starting from $1,500 CAD</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="footer__copyright">
@@ -645,6 +665,32 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Smooth Scroll: offset for fixed header, no hash in URL -->
+    <script>
+        (function () {
+            var HEADER_HEIGHT = 90;
+
+            function scrollToTarget(id) {
+                var target = document.getElementById(id);
+                if (!target) return;
+                var top = target.getBoundingClientRect().top + window.pageYOffset - HEADER_HEIGHT;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+
+            document.addEventListener('click', function (e) {
+                var link = e.target.closest('a[href^="#"]');
+                if (!link) return;
+                var href = link.getAttribute('href');
+                if (href.length <= 1) return;
+                var id = href.substring(1);
+                var target = document.getElementById(id);
+                if (!target) return;
+                e.preventDefault();
+                scrollToTarget(id);
+            });
+        })();
+    </script>
 
     <!-- Before/After Slider Logic -->
     <script>
