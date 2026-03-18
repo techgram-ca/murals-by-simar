@@ -688,6 +688,10 @@
                 var target = document.getElementById(id);
                 if (!target) return;
                 e.preventDefault();
+                // Close slicknav mobile menu if open
+                if (typeof jQuery !== 'undefined') {
+                    jQuery('.mobile-menu').slicknav('close');
+                }
                 scrollToTarget(id);
             });
 
